@@ -6,7 +6,7 @@ const TodoPage = () => {
     // todo list를 받아서 todos에 저장
     const [todos, setTodos] = useState([])
     useEffect( async () => {
-        const resp = await axios.get("https://jsonplaceholder.typicode.com/todos");
+        const resp = await axios.get("/api/todos");
         setTodos(resp.data);
     },[]);
     return (
