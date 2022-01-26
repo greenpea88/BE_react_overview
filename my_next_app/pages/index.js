@@ -6,12 +6,15 @@ export default function Home() {
 
   return (
     <>
-    <div>hello, world</div>
-    <Link href="/hello">go to hello page</Link><br/>
-    <input type="text" onChange={(e) => setId(e.target.value)}/>
-    <Link href={`/${id}`}>
-      <button>go to {id} page</button>
-    </Link>
+      <div>hello, world</div>
+      <Link href="/hello">go to hello page</Link><br/>
+      <input type="text" onChange={(e) => setId(e.target.value)}/>
+      <Link href={`/${id}`}>
+        <button>go to {id} page</button>
+      </Link>
+      <br/>
+      <br/>
+      <Link href={"/todos"}>go to see todo list</Link>
     </>
   )
 }

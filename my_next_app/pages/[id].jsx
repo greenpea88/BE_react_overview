@@ -14,6 +14,7 @@ export default function indexId(){
 
     return (
         <>
+        {console.log('hello', router)}
             <div>{indexId}</div>
             <Link href={("/")}>back to index page</Link>
         </>
