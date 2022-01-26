@@ -8,7 +8,7 @@ const TodoPage = () => {
     useEffect( async () => {
         const resp = await axios.get("https://jsonplaceholder.typicode.com/todos");
         setTodos(resp.data);
-    });
+    },[]);
     return (
         <>
             <h1>Todos</h1>
