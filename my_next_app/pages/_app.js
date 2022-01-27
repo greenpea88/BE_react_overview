@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import {ReactQueryDevtools} from "react-query/devtools"
 import '../styles/globals.css'
 import { AuthContext } from './shared/contexts/auth';
+import BaseLayout from './shared/layouts/base';
 
 const queryClient = new QueryClient();
 
@@ -12,18 +13,20 @@ function MyApp({ Component, pageProps }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
-    <AuthContext.Provider
-    value = {{
-      profile,
-      isLoggedIn,
-      setIsLoggedIn,
-      setProfile
-    }}>
-    <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
-      <ReactQueryDevtools initialIsOpen={false}/>
-    </QueryClientProvider>
-  </AuthContext.Provider>
+    <BaseLayout>
+      <AuthContext.Provider
+      value = {{
+        profile,
+        isLoggedIn,
+        setIsLoggedIn,
+        setProfile
+      }}>
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+        <ReactQueryDevtools initialIsOpen={false}/>
+      </QueryClientProvider>
+    </AuthContext.Provider>
+  </BaseLayout>
   );
 }
 
