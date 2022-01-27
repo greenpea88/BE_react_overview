@@ -12,6 +12,7 @@ const Todo = () => {
     
     // await는 항상 async 내부에서만 사용이 가능함
     useEffect(async () => {
+        //async await는 then을 사용하지 않는 문법!!
         const resp = await axios.get(`https://jsonplaceholder.typicode.com/todos/${todoId}`);
         setTodo(resp.data)
     }, [todoId]);
