@@ -25,7 +25,7 @@ const BaseLayout = ({children}) => {
                 )
             }
             </ul>
-            {profile && <div>{profile.email}</div>}
+            {profile && <div> email : {profile.email}</div>}
             <hr/>
             <div>{children}</div>
         </div>
