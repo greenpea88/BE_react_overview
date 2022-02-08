@@ -12,7 +12,12 @@ const LoginPage = () => {
     const router = useRouter()
 
     const handleSubmit = async() => {
-        const res = await axios.post("/api/oauth/token", {username, password})
+        const res = await axios.post("/api/oauth/token", 
+        {
+            grant_type: "password",
+            username, 
+            password
+        });
         const {access_token, id_token, refresh_token} = res.data
 
         const decodedIdToken = jwtDecode(id_token)

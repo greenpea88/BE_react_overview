@@ -17,11 +17,18 @@ const BaseLayout = ({children}) => {
                         </li>
                     </>
                 ) : (
-                    <li>
-                        <Link href={"/login"}>
-                            <a>login</a>
-                        </Link>
-                    </li>
+                    <>
+                         <li>
+                             <Link href={"/login"}>
+                                 <a>login with password grant</a>
+                             </Link>
+                         </li>
+                         <li>
+                             <Link href={"/login_auth_code"}>
+                                 <a>login with authorization code grant</a>
+                             </Link>
+                         </li>
+                    </>
                 )
             }
             </ul>
