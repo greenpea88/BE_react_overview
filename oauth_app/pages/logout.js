@@ -7,13 +7,14 @@ const LogoutPage = () => {
     const router = useRouter()
 
     useEffect(() => {
-        setIsSignedIn(false)
-        setProfile(null)
+        setIsSignedIn(false);
+        setProfile(null);
 
         // localStorage.removeItem("access_token")
         // localStorage.removeItem("refresh_token")
         // localStorage.removeItem("profile")
-        ['access_token', 'refresh_token', 'profile'].forEach(key => {
+
+        ["access_token", "refresh_token", "profile"].forEach((key) => {
             localStorage.removeItem(key)
         })
 
