@@ -19,13 +19,13 @@ const BaseLayout = ({children}) => {
                 ) : (
                     <>
                          <li>
-                             <Link href={"/login"}>
-                                 <a>login with password grant</a>
+                             <Link href={"/login_password"}>
+                                 <a>login (w/ password grant)</a>
                              </Link>
                          </li>
                          <li>
                              <Link href={"/login_auth_code"}>
-                                 <a>login with authorization code grant</a>
+                                 <a>login (w/ authorization code grant)</a>
                              </Link>
                          </li>
                     </>

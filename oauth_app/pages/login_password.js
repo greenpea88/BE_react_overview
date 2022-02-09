@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../shared/context/auth";
 
-const LoginPage = () => {
+const PasswordLoginPage = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -55,4 +55,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage;
+export default PasswordLoginPage;
