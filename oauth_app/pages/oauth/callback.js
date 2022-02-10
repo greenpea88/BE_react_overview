@@ -1,5 +1,4 @@
 import axios from "axios";
-import jwtDecode from "jwt-decode";
 import { useRouter } from "next/router"
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
@@ -14,6 +13,7 @@ const CallBackPage = () => {
     useEffect( () => {
         (async () => {
             const {code} = router.query;
+            console.log(code)
             if (code) {
                 //code를 정상적으로 받아올 경우
                 try {
@@ -23,11 +23,13 @@ const CallBackPage = () => {
                         grant_type: "authorization_code",
                         code,
                     });
-
+              
+                    console.log({resp})
+              
                     const {access_token, refresh_token} = resp.data;
-                    localStorage.setItem("access_token") = access_token;
-                    localStorage.setItem("refresh_token") = refresh_token;
-
+                    localStorage.setItem("access_token", access_token);
+                    localStorage.setItem("refresh_token", refresh_token);
+              
                     // 사용자에 대한 정보를 보내주지 않기 때문에 한 번더 요청을 해서 받아와야 함
                     const profileResp = await axios.get(
                         process.env.NEXT_PUBLIC_OAUTH_USER_INFO_ENDPOINT,
@@ -35,27 +37,28 @@ const CallBackPage = () => {
                             headers: {
                                 authorization: `Bearer ${access_token}`
                             },
-                        }
-                    );
-                    const decodedProfile = jwtDecode(profileResp.data);
-                    const profile = {"email": decodedProfile.email};
-
-                    localStorage.setItem("profile") = profile;
+                        });
+                    console.log({profileResp});
+                    const profile = {"email": profileResp.data.email};
+              
+                    localStorage.setItem("profile", profile);
                     setIsSignedIn(true);
                     setProfile(profile);
-
+              
+                    console.log({localStorage})
                     router.push("/");
-
                 } catch (err) {
                     setError("server error")
                 }
             }
-        })
+        })();
     }, [router])
 
     if (error) {
         return <div>{error}</div>;
     }
 
-    return <div>Loading....</div>
+    return <div>Loading...</div>;
 }
+
+export default CallBackPage;

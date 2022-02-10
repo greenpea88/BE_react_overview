@@ -23,10 +23,9 @@ const AuthCodeLoginPage = () => {
         // window -> client side에서만 실행되는 object = server side에는 window object가 존재하지 않음
         // window의 위치를 해당 URI로 보낸다~의 의미
         window.location.href = AUTHORIZE_URI;
-
     },[]);
     
     return <div>loading...</div>
-}
+};
 
 export default AuthCodeLoginPage;

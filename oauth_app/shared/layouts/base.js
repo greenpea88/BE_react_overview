@@ -15,6 +15,11 @@ const BaseLayout = ({children}) => {
                                 <a>logout</a>
                             </Link>
                         </li>
+                        <li>
+                            <Link href={"/banners"}>
+                                <a>banner list</a>
+                            </Link>
+                        </li>
                     </>
                 ) : (
                     <>
