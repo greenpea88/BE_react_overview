@@ -46,10 +46,10 @@ if (typeof window !== "undefined") {
                          originalRequest.headers.authorization = `Bearer ${access_token}`;
                          return axios(originalRequest);
                      }).catch(() => {
-                        //  localStorage.removeItem("access_token");
-                        //  localStorage.removeItem("refresh_token");
-                        //  localStorage.removeItem("profile");
-                        //  window.location.href = "/";
+                         localStorage.removeItem("access_token");
+                         localStorage.removeItem("refresh_token");
+                         localStorage.removeItem("profile");
+                         window.location.href = "/";
 
                          return false;
                      });
